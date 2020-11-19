@@ -20,10 +20,10 @@ def component = "location-ref-api"
 
 def secrets = [
       's2s-aat': [
-        secret('microservicekey-rd-location-ref-api', 'S2S_SECRET')
+        secret('', 'S2S_SECRET')
     ],
       'rd-aat': [
-        secret('OAUTH2-CLIENT-SECRET', 'IDAM_SECRET')
+        secret('', 'IDAM_SECRET')
     ]
 ]
 
