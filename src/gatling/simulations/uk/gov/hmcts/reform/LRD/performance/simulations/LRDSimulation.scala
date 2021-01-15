@@ -13,7 +13,8 @@ class LRDSimulation extends Simulation{
   val HourlyTarget:Double = 600
   val RatePerSec = HourlyTarget / 3600
 
-  val httpProtocol = http.proxy(Proxy("proxyout.reform.hmcts.net", 8080).httpsPort(8080))
+  val httpProtocol = http
+  //.proxy(Proxy("proxyout.reform.hmcts.net", 8080).httpsPort(8080))
     .baseUrl(Environment.baseURL)
 
   val LRDScenario = scenario("RoleAssignmentScenario").repeat(1)
