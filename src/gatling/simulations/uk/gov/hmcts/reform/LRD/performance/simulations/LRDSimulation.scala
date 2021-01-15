@@ -4,6 +4,7 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import uk.gov.hmcts.reform.LRD.performance.scenarios.utils._
 import uk.gov.hmcts.reform.LRD.performance.scenarios._
+import scala.concurrent.duration._
 
 class LRDSimulation extends Simulation{
   
