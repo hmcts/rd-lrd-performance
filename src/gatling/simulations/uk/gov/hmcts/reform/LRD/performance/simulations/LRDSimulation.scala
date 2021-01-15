@@ -6,6 +6,12 @@ import uk.gov.hmcts.reform.LRD.performance.scenarios.utils._
 import uk.gov.hmcts.reform.LRD.performance.scenarios._
 
 class LRDSimulation extends Simulation{
+  
+  val rampUpDurationMins = 2
+  val rampDownDurationMins = 2
+  val testDurationMins = 60
+  val HourlyTarget:Double = 600
+  val RatePerSec = HourlyTarget / 3600
 
   val httpProtocol = http.proxy(Proxy("proxyout.reform.hmcts.net", 8080).httpsPort(8080))
     .baseUrl(Environment.baseURL)
@@ -17,5 +23,9 @@ class LRDSimulation extends Simulation{
         .exec(GetScenario.GetScenario)
     }
 
-  setUp(LRDScenario.inject(rampUsers(10) during(300))).protocols(httpProtocol)
+  setUp(LRDScenario.inject(
+      rampUsersPerSec(0.00) to (RatePerSec) during (rampUpDurationMins minutes),
+      constantUsersPerSec(RatePerSec) during (testDurationMins minutes),
+      rampUsersPerSec(RatePerSec) to (0.00) during (rampDownDurationMins minutes)
+    )).protocols(httpProtocol)
 }
