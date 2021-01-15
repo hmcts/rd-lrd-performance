@@ -10,7 +10,7 @@ object GetScenario {
   val feederFile2 = csv("CCDCaseType.csv").circular
 
   val GetScenario = scenario("GetScenario")
-    .exec(http(requestName="LRD_010_NoServiceCode")
+    /*.exec(http(requestName="LRD_010_NoServiceCode")
       .get("/refdata/location/orgServices")
       .headers(Environment.headers_1)
       .check(status.is(200)))
@@ -21,7 +21,7 @@ object GetScenario {
       .get("/refdata/location/orgServices?service_code=${Service_Code}")
       .headers(Environment.headers_1)
       .check(status.is(200)))
-    .pause(2)
+    .pause(2)*/
 
     .feed(feederFile2)
     .exec(http(requestName="LRD_030_CCDCaseType")
