@@ -8,7 +8,7 @@ object GetScenario {
 
   val feederFile = csv("OrgIDStructure.csv").circular
   val feederFile2 = csv("CCDCaseType.csv").circular
-  val thinkTime = "10"
+  val thinkTime = "25"
 
   val GetScenario = scenario("GetScenario")
     /*.exec(http(requestName="LRD_010_NoServiceCode")
