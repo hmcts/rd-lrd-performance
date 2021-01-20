@@ -12,7 +12,7 @@ class LRDSimulation extends Simulation{
   //.proxy(Proxy("proxyout.reform.hmcts.net", 8080).httpsPort(8080))
     .baseUrl(Environment.baseURL)
 
-  val LRDScenario = scenario("RoleAssignmentScenario")
+  val LRDScenario = scenario("LRDScenario")
   .exec(IDAMHelper.getIdamToken)
   .exec(S2SHelper.S2SAuthToken)
   .repeat(120)
