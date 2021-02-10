@@ -18,4 +18,6 @@ package uk.gov.hmcts.reform.LRD.performance.simulations
      }
 
    setUp(LRDScenario.inject(rampUsers(10) during(300))).protocols(httpProtocol)
+   .assertions(global.successfulRequests.percent.is(100))
+  
  }
