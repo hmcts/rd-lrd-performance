@@ -7,7 +7,8 @@ package uk.gov.hmcts.reform.LRD.performance.simulations
 
  class LRDSimulation extends Simulation{
 
-   val httpProtocol = http.proxy(Proxy("proxyout.reform.hmcts.net", 8080).httpsPort(8080))
+   val httpProtocol = http
+     //.proxy(Proxy("proxyout.reform.hmcts.net", 8080).httpsPort(8080))
      .baseUrl(Environment.baseURL)
 
    val LRDScenario = scenario("LRDScenario").repeat(1)
